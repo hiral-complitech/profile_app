@@ -2,16 +2,16 @@
 <%= link_to "login", new_user_session_path, method: :get %></br>
 <%# link_to "sign_out", destroy_user_session_path, method: :delete %>
 
-<%= form_tag(search_path, method: :post, id: "search_submit") do %>
+<%= form_tag(search_path, remote: :false, method: :post) do %>
   <p>
     <%= search_field_tag :search, params[:search], placeholder: "search" %>
     <%= submit_tag "search" %>
   </p>
-  <%# <div id="searches">render 'homes/search.js.erb'</div> %>
+  <div id="searches"><%= render 'getsearchdata' %></div>
 <% end %>
 <%# search_field_tag :search, params[:search], placeholder: "search", onkeyup:"search_function(this.value);" %>
 
-<%= form_with(url: filter_path, method: :post) do |form| %>
+<%= form_with(url: filter_path, remote: :false, method: :post) do |form| %>
   <div class="field">
     <%= form.radio_button :gender, 'Female' %> Female
     <%= form.radio_button :gender, 'Male' %> Male
@@ -20,6 +20,7 @@
   <div class="actions">
     <%= submit_tag "filter" %>
   </div>
+  <div id="filters"><%= render 'getfilterdata' %></div>
 <% end %>
 
 <%# <script type="text/javascript">

@@ -1,0 +1,8 @@
+<% if @filterdatas.present? %>
+<% @filterdatas.each do |result| %>
+  <p>
+    <strong>profile:</strong>
+    <%= link_to result.name, profile_path(result.id), method: :get %>
+  </p>
+<% end %>
+<% end %>

@@ -1,15 +1,10 @@
+<% if @results.present? %>
 <% @results.each do |result| %>
   <p>
-    <strong>Name:</strong>
+    <strong>profile:</strong>
     <%= link_to result.name, profile_path(result.id), method: :get %>
   </p>
-
-  <% result.images.each_with_index do |attachment, index| %>
-    <p>
-      <strong>Images:</strong>
-      <%= image_tag url_for(attachment) %>
-    </p>
-  <% end %>
+<% end %>
 <% end %>
 
 <%# <script type="text/javascript"> %>
