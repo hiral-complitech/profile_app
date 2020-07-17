@@ -1,0 +1,62 @@
+<%= link_to "sign_up", new_user_registration_path, method: :get %></br>
+<%= link_to "login", new_user_session_path, method: :get %></br>
+<%# link_to "sign_out", destroy_user_session_path, method: :delete %>
+
+<%= form_tag(search_path, method: :post, id: "search_submit") do %>
+  <p>
+    <%= search_field_tag :search, params[:search], placeholder: "search" %>
+    <%= submit_tag "search" %>
+  </p>
+  <%# <div id="searches">render 'homes/search.js.erb'</div> %>
+<% end %>
+<%# search_field_tag :search, params[:search], placeholder: "search", onkeyup:"search_function(this.value);" %>
+
+<%= form_with(url: filter_path, method: :post) do |form| %>
+  <div class="field">
+    <%= form.radio_button :gender, 'Female' %> Female
+    <%= form.radio_button :gender, 'Male' %> Male
+    <%= form.radio_button :gender, 'All' %> All
+  </div>
+  <div class="actions">
+    <%= submit_tag "filter" %>
+  </div>
+<% end %>
+
+<%# <script type="text/javascript">
+  $('#search_submit').submit( function(data) {
+    // alert("dhidfb");
+    // alert(data);
+    console.log(data);
+  });
+</script> %>
+
+
+<%# <script type="text/javascript">
+  $(".search_companies").keyup(function() {
+    $.ajax({
+      url:  <%= search_path %>
+      <%# data: {search: $(this).serialize()} %>
+    <%# }); %>
+  <%# }); %>
+<%# </script> %>
+
+<%# <script type="text/javascript"> %>
+<%# function search_function(value) { %>
+  <%# // $.ajax({ %>
+    <%# <url: "search_path %>
+    <%# method: 'GET', %>
+    <%# dataType: 'json', %>
+    <%# data: { search: value }, %>
+    <%# success: function(data){ %>
+        <%# console.log(data); %>
+        <%# // data.results.forEach(function(v){ %>
+          <%# // console.log(v.name); %>
+        <%# // }); %>
+    <%# }, %>
+    <%# error: function(xhr, ajaxOptions, thrownError) { %>
+      <%# // alert(xhr.status); %>
+      <%# // alert(thrownError); %>
+    <%# } %>
+  <%# }); %>
+<%# } %>
+<%# </script> %>
