@@ -23,6 +23,11 @@
   <div id="filters"><%= render 'getfilterdata' %></div>
 <% end %>
 
+<b>Sort_by:</b></br>
+<%= link_to "name", sort_name_path, remote: :false, method: :post %>
+<div id="sortnames"><%= render 'getsortnamedata' %></div>
+<%= link_to "age", sort_age_path, remote: :false, method: :post %>
+<div id="sortages"><%= render 'getsortnamedata' %></div>
 <%# <script type="text/javascript">
   $('#search_submit').submit( function(data) {
     // alert("dhidfb");

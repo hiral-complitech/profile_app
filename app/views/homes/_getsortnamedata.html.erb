@@ -1,0 +1,8 @@
+<% if @sorted_name_data.present? %>
+<% @sorted_name_data.each do |result| %>
+  <p>
+    <strong>profile:</strong>
+    <%= link_to result[0], profile_path(result[1]), method: :get %>
+  </p>
+<% end %>
+<% end %>

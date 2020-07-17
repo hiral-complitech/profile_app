@@ -20,6 +20,16 @@ class HomesController < ApplicationController
     # raise @filterdatas.inspect
   end
 
+  def sort_name
+    names = Profile.all.pluck(:name, :id)
+    @sorted_name_data = names.sort { |a, b| a <=> b }
+  end
+
+  def sort_age
+    ages = Profile.all.pluck(:age, :id)
+    @sorted_age_data = ages.sort { |a, b| a <=> b }
+  end
+
   # def search
   #   @results = Profile.search(params[:search].split("=").last)
   #   respond_to :js
