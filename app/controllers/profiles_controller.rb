@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :increment_views, only: [:show]
 
   # GET /profiles
   # GET /profiles.json
@@ -66,6 +67,10 @@ class ProfilesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
+    end
+
+    def increment_views
+      @profile.increment!(:count, 1)
     end
 
     # Only allow a list of trusted parameters through.
